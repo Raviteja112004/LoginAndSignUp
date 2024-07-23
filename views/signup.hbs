@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../input.css">
+    <link rel="stylesheet"
+    	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script
+    	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+    	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div
+        class="container flex flex-col justify-center border-2  items-center h-[100vh] w-full">
+        
+        <div class="form min-h-[60vh] p-10 text-white flex flex-col justify-center">
+             <div class="bg-white h-[1px] w-auto"></div>
+            <h1 class="text-4xl mx-auto mb-4 mt-3 font-semibold ">
+                Sign Up
+            </h1>
+            <div class="bg-white h-[1px] w-auto"></div>
+            <form action="/signup" method="post" class ="flex flex-col justify-center space-y-2 h-auto " >
+            <p class="text-red-500 mx-auto mt-2">{{content}}</p>
+                <label for="" class="mt-4 text-2xl">Username</label>
+                <input type="text" required name="name" placeholder="Username" class="border-[0px] px-4 rounded-lg bg-transparent  p-1 w-56">
+                
+                <label for="" class="mt-4 text-2xl">Password</label>
+                <input type="password" required name="password" minlength="8" placeholder="Password" class="border-1 px-4 rounded-lg bg-transparent mt-2 p-1 w-56">
+                <button type="submit"
+                    class=" rounded-lg border-2 px-10 border-black bg-white  py-1 hover:bg-transparent hover:text-white mx-auto  text-black text-bold">Sign UP</button>
+            </form>
+            <a href="/login" class="underline mt-8 mx-auto ">Go to Login </a>
+   
+</div>
+
+    </div>
+        <style>
+            body{
+            background: linear-gradient(-45deg, #00398f, #143f83, #08023c, #0f1644); 
+    
+         }
+        .form{
+            
+    
+    border-radius: 10px;
+    backdrop-filter: blur(100px);
+    background-color: rgba(255, 255, 255, 0.127);
+    border: 2px solid rgba(255,255,255,0.1);
+  
+        }
+      
+    </style>
+      {{#if wrongPassword}} 
+<script>
+    $(document).ready(function() {
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000"
+        };
+        toastr.error("{{wrongPassword}}");
+    });
+</script>
+{{/if}} 
+  
+</body>
+
+</html>
